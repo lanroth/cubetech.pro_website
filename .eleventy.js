@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("src/**/*.svg");
     eleventyConfig.addPassthroughCopy("src/**/*.png");
+    eleventyConfig.addPassthroughCopy("src/**/*.pdf");
     eleventyConfig.addPassthroughCopy("src/CNAME");
 
     // Return your Object options:
