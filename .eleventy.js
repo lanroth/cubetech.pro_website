@@ -1,16 +1,36 @@
-const eleventySass = require("eleventy-sass");
+const eleventySass = require("eleventy-sass")
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventySass, {
         sass: {
             style: "expanded"
         }
-    });
+    })
 
-    eleventyConfig.addPassthroughCopy("src/**/*.svg");
-    eleventyConfig.addPassthroughCopy("src/**/*.png");
-    eleventyConfig.addPassthroughCopy("src/**/*.pdf");
-    eleventyConfig.addPassthroughCopy("src/CNAME");
+    const copiedFileTypes = [
+        "jpg",
+        "jpeg",
+        "png",
+        "svg",
+        "ico",
+        "pdf",
+        "webmanifest",
+        "xml",
+        "txt",
+        "css",
+        "js",
+        "webp",
+        "avif",
+        "woff2",
+        "woff",
+        "eot",
+        "ttf",
+        "otf",
+    ]
+
+    copiedFileTypes.forEach(fileType => eleventyConfig.addPassthroughCopy(`src/**/*.${fileType}`))
+
+    eleventyConfig.addPassthroughCopy("src/CNAME")
 
     // Return your Object options:
     return {
@@ -19,4 +39,4 @@ module.exports = function(eleventyConfig) {
             output: "dist"
         }
     }
-};
+}
